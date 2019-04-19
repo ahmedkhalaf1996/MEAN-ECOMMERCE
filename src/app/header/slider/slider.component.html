@@ -1,0 +1,53 @@
+
+<section id="slider"><!--slider-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+          <i *ngFor="let slide of slider; let index = index;" >
+            <li  [class.active]="index ==  slideSelector" (click)="redirect(index)"></li>
+          </i>
+  </ol>
+
+          <div class="carousel-inner">
+
+         <div  *ngFor="let slide of slider; let index = index;"  >
+            <div class="item" *ngIf="index == slideSelector" [@list2]='state'>
+                <div class="col-sm-6">
+                  <h1><span>E</span>-SHOPPER</h1>
+                  <h2>{{ slide.title }}</h2>
+                  <p>{{ slide.content }}</p>
+                  <button type="button" class="btn btn-default get">Get it now</button>
+                </div>
+                <div class="col-sm-6">
+                  <img [src]=slide.imagePath class="girl img-responsive" alt="" />
+                </div>
+              </div>
+         </div>
+
+          </div>
+
+          <a (click)="prev()" [@list2]='state' class="left control-carousel hidden-xs" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a (click)="next()" [@list2]='state' class="right control-carousel hidden-xs" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
