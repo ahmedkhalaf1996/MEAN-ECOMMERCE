@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container">
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5">
+    <button (click)="changepage('products')" type="button" class="btn btn-danger col-md-12 form-control">products</button>
+    <button (click)="changepage('users')" type="button" class="btn btn-warning  col-md-12 form-control">users</button>
+    <button (click)="changepage('bloglist')"  type="button" class="btn btn-primary col-md-12 form-control">bloglist</button>
+    <button (click)="changepage('messages')" type="button" class="btn btn-secondary  col-md-12 form-control">messages</button>
+    <button (click)="changepage('orders')" type="button" class="btn btn-success  col-md-12 form-control">orders</button>
+
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+      <app-bloglist *ngIf="NameOfPage  == 'bloglist'"></app-bloglist>
+      <app-messages *ngIf="NameOfPage  == 'messages'"></app-messages>
+      <app-orders *ngIf="NameOfPage  == 'orders'"></app-orders>
+      <app-products *ngIf="NameOfPage  == 'products'"></app-products>
+      <app-users *ngIf="NameOfPage  == 'users'"></app-users>
+  </div>
+</div>
+
+<hr>
+
+</div>
+
+
+

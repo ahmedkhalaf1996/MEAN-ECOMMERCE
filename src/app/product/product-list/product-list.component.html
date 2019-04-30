@@ -1,0 +1,74 @@
+
+<app-header></app-header>
+
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+       <app-category></app-category>
+       </div>
+
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9 padding-right">
+              <div class="features_items"><!--features_items-->
+                <h2 class="title text-center">Features Items</h2>
+
+                <a [routerLink]="['/ProductDetails']"
+                   [queryParams]="{Id:product.id}"
+                   style="cursor: pointer" class="col-sm-4"
+                   *ngFor="let product of products; let index = index;"
+                  >
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img width="240" height="240" [src]=product.imagePath  alt="" />
+                        <h2>${{ product.price }}</h2>
+                        <p>{{ product.itmemdesc }}</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                      </div>
+                      <div class="product-overlay">
+                        <div class="overlay-content">
+                          <h2>${{ product.price }}</h2>
+                          <p>{{ product.itmemdesc }}</p>
+                          <a (click)="addtoCart(product)" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="choose">
+                      <ul class="nav nav-pills nav-justified">
+                        <li><a  (click)="addtoWishList(product)" ><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </a>
+              </div><!--features_items-->
+              <!--pagination part-->
+            <div class="text-center pagination" >
+              <mat-paginator
+              [length]="totalproduct"
+              [pageSize]="productPerPage"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="onChangedPage($event)"
+              *ngIf="products.length > 0"
+              ></mat-paginator>
+            <p class="info-text mat-body-1"
+               *ngIf="products.length <= 0 && !isLoading">No product added yet!</p>
+            </div>
+              <!--pagination part-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+   </div>
+ </div>
+</section>
+
+
+<app-footer></app-footer>

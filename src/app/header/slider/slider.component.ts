@@ -102,11 +102,17 @@ export class SliderComponent implements OnInit {
 
 
   ngOnInit() {
-    this.slider = this.sliderservice.getslider();
-    console.log(this.slider);
-    console.log(this.slider.length);
+     this.getSliderdata();
+
+    // console.log(this.slider);
+    // console.log(this.slider.length);
     this.changeSelector();
   }
+
+  async getSliderdata() {
+    this.slider =  await this.sliderservice.getslider() as Slider[];
+  }
+
 
   prev(){
 
@@ -138,7 +144,7 @@ export class SliderComponent implements OnInit {
       this.state ='out';
       if(this.slideSelector < this.slider.length-1){
         this.slideSelector++;
-        console.log(this.slideSelector);
+        // console.log(this.slideSelector);
       } else {
         this.slideSelector = 0;
       }

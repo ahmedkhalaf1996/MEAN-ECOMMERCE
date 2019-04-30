@@ -3,6 +3,7 @@ const multer = require("multer");
 
 const Post = require("../models/post");
 const checkAuth = require("../middleware/check-auth");
+const isAdmin = require("../middleware/check-isAdmin");
 
 const router = express.Router();
 
@@ -31,9 +32,7 @@ const storage = multer.diskStorage({
   }
 });
 
-router.post(
-  "",
-  checkAuth,
+router.post("", checkAuth,isAdmin,
   multer({ storage: storage }).single("image"),
   (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");
@@ -61,6 +60,11 @@ router.post(
       });
   }
 );
+
+
+
+
+
 
 router.put(
   "/:id",

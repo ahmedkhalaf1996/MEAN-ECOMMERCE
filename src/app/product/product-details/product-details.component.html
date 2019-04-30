@@ -1,0 +1,61 @@
+
+<app-header></app-header>
+
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+       <app-category></app-category>
+       </div>
+	     <div class="col-sm-9 padding-right">
+
+
+
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img  [src]="imagePath  || '' " alt="" />
+								<h3>ZOOM</h3>
+							</div>
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="assets/images/product-details/new.jpg" class="newarrival" alt="" />
+								<h2>{{ itmemdesc }}</h2>
+								<span>
+									<span>US ${{ price }}</span>
+									<label>Quantity:</label>
+									<input type="text" value="1" />
+									<button (click)="addTocart()" type="button" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
+								</span>
+								<p><b>Availability:</b> In Stock</p>
+								<p><b>Condition:</b> New</p>
+
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+
+
+
+
+
+
+
+
+
+
+
+
+        <app-recommended-items></app-recommended-items>
+     </div>
+   </div>
+ </div>
+</section>
+
+
+<app-footer></app-footer>

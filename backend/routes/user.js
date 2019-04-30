@@ -10,7 +10,9 @@ router.post("/signup", (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
     const user = new User({
       email: req.body.email,
-      password: hash
+      password: hash,
+      name: req.body.name,
+      isAdmin: req.body.isAdmin
     });
     user
       .save()
@@ -54,7 +56,8 @@ router.post("/login", (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600,
-        userId: fetchedUser._id
+        userId: fetchedUser._id,
+        isAdmin: fetchedUser.isAdmin
       });
     })
     .catch(err => {
@@ -63,5 +66,27 @@ router.post("/login", (req, res, next) => {
       });
     });
 });
+
+
+
+
+router.post("/isAdmin", (req, res, next) => {
+  const token = req.headers.authorization.split(" ")[1];
+  const decodedToken = jwt.verify(token, "secret_this_should_be_longer");
+  const userId =  decodedToken.userId;
+
+  User.findOne({ _id : userId })
+    .then(
+      result => {
+       if(result){
+        res.status(200).json({
+          isAdmin: result.isAdmin
+        })
+       }
+     }
+    )
+});
+
+
 
 module.exports = router;

@@ -1,0 +1,66 @@
+<app-header></app-header>
+<section>
+  <div class="container">
+    <div class="row">
+
+
+<a (click)="loginWithfacebook()">LogIngwithfacebook</a>
+
+
+<section id="form"><!--form-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-1">
+        <div class="login-form"><!--login form-->
+          <h2>Login to your account</h2>
+
+          <form (submit)="onLogin(loginForm)" #loginForm="ngForm" >
+            <input name="email" type="email"  placeholder="E-mail" ngModel #emaiInput="ngModel" required email />
+            <mat-error *ngIf="emaiInput.invalid">Please enter a vaild email.</mat-error>
+
+            <input  type="password" name="password" ngModel #passwordInput="ngModel"  matInput placeholder="Password" required/>
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid pssword.</mat-error>
+
+            <span>
+              <input type="checkbox" class="checkbox">
+              Keep me signed in
+            </span>
+
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
+
+        </div><!--/login form-->
+      </div>
+      <div class="col-sm-1">
+        <h2 class="or">OR</h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="signup-form"><!--sign up form-->
+          <h2>New User Signup!</h2>
+          <form  (submit)="onSignUp(signupForm)" #signupForm="ngForm" >
+
+            <input name="name" type="email"  placeholder="Name" ngModel #emaiInput="ngModel" required  />
+            <mat-error *ngIf="emaiInput.invalid">Please enter a vaild email.</mat-error>
+
+            <input name="email" type="email"  placeholder="E-mail" ngModel #emaiInput="ngModel" required email />
+            <mat-error *ngIf="emaiInput.invalid">Please enter a vaild email.</mat-error>
+
+            <input  type="password" name="password" ngModel #passwordInput="ngModel"  matInput placeholder="Password" required/>
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid pssword.</mat-error>
+
+            <button type="submit" class="btn btn-default">Signup</button>
+          </form>
+        </div><!--/sign up form-->
+      </div>
+    </div>
+  </div>
+</section><!--/form-->
+
+
+
+
+
+    </div>
+ </div>
+</section>
+<app-footer></app-footer>

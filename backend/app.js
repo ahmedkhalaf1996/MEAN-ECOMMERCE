@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 
 const postsRoutes = require('./routes/posts');
 const userRoutes = require('./routes/user');
-
 const app = express();
 
 mongoose.connect('mongodb+srv://khalafahmed7396:gSare5NDkEKglbtt@cluster0-r5n2s.mongodb.net/mean?retryWrites=true',{ useNewUrlParser: true })
@@ -33,6 +32,61 @@ app.use((req,res,next)=>{
     "GET,POST, PATCH, PUT, DELETE, OPTIONS")
   next();
 });
+
+
+
+
+
+
+
+
+
+
+// var passport = require('passport')
+// , FacebookStrategy = require('passport-facebook').Strategy;
+
+// passport.use(new FacebookStrategy({
+//   clientID: 348841445988008,
+//   clientSecret: '732c8941f334598171d748e5ac1cb8af',
+//   callbackURL: "https://blooming-badlands-89755.herokuapp.com/",
+//   profileFields: ['id', 'displayName', 'photos', 'email'],
+// },
+// (accessToken, refreshToken, profile, done) => {
+//   console.log(profile);
+//   done(null, profile);
+//   // User.findOrCreate(..., function(err, user) {
+//   //   if (err) { return done(err); }
+//   //   done(null, user);
+//   // });
+// }
+// )
+// );
+
+
+
+// app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+// app.get('/auth/facebook/callback',
+//   passport.authenticate('facebook', { successRedirect: '/',
+//                                       failureRedirect: '/login' }));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.use('/api/posts',  postsRoutes);
 app.use('/api/user',  userRoutes);

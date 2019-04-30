@@ -34,8 +34,15 @@ export class SliderService {
 
   constructor() {}
 
+
   getslider(){
-    return this.sliderlist;
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.sliderlist);
+      }, 1000);
+    });
+   // return this.sliderlist;
   }
 
 

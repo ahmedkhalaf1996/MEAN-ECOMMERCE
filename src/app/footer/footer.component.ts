@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FooterService } from './footer.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  mail:any;
+
+  constructor(public footerService: FooterService) { }
 
   ngOnInit() {
+  }
+
+  sendMail(event){
+     this.footerService.SendMail(event);
   }
 
 }
